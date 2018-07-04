@@ -24,31 +24,55 @@ var factorial = function(n) {
 
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
+// create a function named sum
 var sum = function(array) {
+  //if the lenght of the array is empty..
   if (array.length < 1){
+    //return  cero;
     return 0;
   }
-
+  // return the sum of the array of its integrers
   return array[0]+ sum(array.slice(1));
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
+// write a fucntion called the sum of arrays
 var arraySum = function(array) {
- // if(array[0] < 1){
- //   return -arraySum(Math.abs(array[0]));
- // }
+  // if the elements inside the function are an array
  if(Array.isArray(array[0])){
+   /* return the function at the starting point on the array and add the sum
+   of the elements decending 1 reinserting the array within the function*/
    return arraySum(array[0])+ arraySum(array.slice(1));
  }
+ // if the array is empty
  if(array.length < 1){
+   // return 0
    return 0;
  }
+ /* return the starting point of the array recursing in the first spot of the
+ index */
  return array[0] + arraySum(array.slice(1));
 };
 
 // 4. Check if a number is even.
+// write a fucntion is even fucntion
 var isEven = function(n) {
+  /* if the number is equal to 0; return true (0 being an even number and also
+      our stoppin point to recursing) - base case*/
+  if(n === 0){
+    return true;
+  }
+  // if the number is equal to one returns false ( 1 being an odd number)
+  if (n === 1){
+    return false;
+  }
+  // if the number is negative then multiply the function and the number by -1
+  if (n < 0){
+    return isEven(n * -1);
+  }
+  // return the function substarcting the number two; until it reaches 0;
+  return isEven(n -2);
 };
 
 // 5. Sum all integers below a given integer.
