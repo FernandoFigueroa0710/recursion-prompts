@@ -261,14 +261,35 @@ var divide = function(x, y) {
 // gcd(4,36); // 4
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
-var gcd = function(x, y) {
+var gcd = function(x, y){
+  // base cases
+  if (x < 0 || y < 0) {
+     return null;
+   }
+ if (y % x === 0) {
+   return x;
+ }
+
+ // recursive cases
+ return gcd(y, x % y);
 };
+
 
 // 15. Write a function that compares each character of two strings and returns true if
 // both are identical.
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  // base cases
+  if (str1 === '' && str2 === '') {
+     return true; 
+   }
+  if (str1.charAt(0) !== str2.charAt(0)) {
+    return false;
+  }
+
+  // recursive case
+  return compareStr(str1.substr(1), str2.substr(1));
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
