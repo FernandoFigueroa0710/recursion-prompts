@@ -140,15 +140,51 @@ var exponent = function(base, exp) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {
+// write a function called powerOfTwo
+var powerOfTwo = function(n){
+  // base case if the remainder number equals to 1 return true
+  // once it returns true it will stop running
+  if (n === 1){
+    return  true ;
+    //modulo the number and is not equal to 0, OR number is loosely equal to 0
+  } else if (n % 2 != 0 || n == 0){
+    // return false
+    return false;
+  }else{
+    // return the functuon with the number divided between two ( to veryfy )
+    return powerOfTwo(n/2);
+  }
+
 };
 
 // 9. Write a function that reverses a string.
+// write a function reverse
 var reverse = function(string) {
+  // base case is if the string is empty, return an empty string
+  if (string === ""){
+    return "";
+  }
+  /* using the substr method we start at index position 1. cutting each element
+   from the string until it reaches and empty string; then using the charAt function
+     we are adding the elements of a string starting for the first  position */
+  return reverse(string.substr(1)) + string.charAt(0);
 };
 
 // 10. Write a function that determines if a string is a palindrome.
+// write a function called palindorme
 var palindrome = function(string) {
+  // set up the value of our string to use the lowercase fucntion
+ string = string.toLowerCase("");
+ // if there's only one letter the statement is true
+if(string.length === 1){
+return true;
+// else if the first letter and the last letter of the word isn't the same
+}else if(string[0] !== string[string.length-1]){
+  //return false
+return false;
+}
+// return the function with the substring method taking the first and the last letter;
+return palindrome(string.substring(1,-1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -157,6 +193,7 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+  
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
