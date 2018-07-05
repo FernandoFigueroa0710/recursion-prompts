@@ -108,7 +108,7 @@ var range = function(x, y) {
   var newArr = range(x, y + 1);
   newArr.push(y + 1);
   return newArr;
-// return the palceholder subtracting one from the last integrer 
+// return the palceholder subtracting one from the last integrer
 } else {
 
   newArr = range(x, y - 1);
@@ -124,6 +124,16 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  // write our base case to return 1
+  if ( exp === 0){
+    return 1;
+  }
+  //if the number is negative; divide 1 by the function with a negative exponent
+  if (exp < 0){
+    return 1 / exponent(base, -exp);
+  }
+  // if the number is positive multiply the base times function -1
+  return base * exponent(base, exp -1);
 };
 
 // 8. Determine if a number is a power of two.
