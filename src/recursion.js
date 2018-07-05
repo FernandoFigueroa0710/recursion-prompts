@@ -90,13 +90,32 @@ var sumBelow = function(n) {
     return  (n + 1) + sumBelow(n + 1);
   }
   /* retunrn the absolute value of the fucntion substracting one number
-  everytime the function runs (sucstraction since it's working with positive)*/ 
+  everytime the function runs (sucstraction since it's working with positive)*/
   return  Math.abs(n - 1) + Math.abs(sumBelow(n -1));
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
+// write a function called range
 var range = function(x, y) {
+  // create a conditional to meet edge cases, and base case;
+  if ( x === y - 1 || y === x - 1 || x === y) {
+  return [];
+  // if the number is negative
+} else if (x > y) {
+  /* create a new placeholder equals to the function with the last integrer
+   adding one since we are working with newgative numbers */
+  var newArr = range(x, y + 1);
+  newArr.push(y + 1);
+  return newArr;
+// return the palceholder subtracting one from the last integrer 
+} else {
+
+  newArr = range(x, y - 1);
+  newArr.push(y - 1);
+
+}
+ return newArr;
 };
 
 // 7. Compute the exponent of a number.
