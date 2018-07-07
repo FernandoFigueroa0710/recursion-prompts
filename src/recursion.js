@@ -282,7 +282,7 @@ var gcd = function(x, y){
 var compareStr = function(str1, str2) {
   // base cases
   if (str1 === '' && str2 === '') {
-     return true; 
+     return true;
    }
   if (str1.charAt(0) !== str2.charAt(0)) {
     return false;
@@ -295,11 +295,18 @@ var compareStr = function(str1, str2) {
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+  // base case: resolve to array containing first character of string
+ // recursive case: concatenate results of calling createArray on substrings
+ return str.length === 1 ? [str.charAt(0)] : [str.charAt(0)].concat(createArray(str.substr(1)));
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function(array) {
+  var reverseArr = function(array) {
+  // base case: resolve to (original) empty array
+  // recursive case: call reverseArray on sliced array and concatenate with first element
+  return !array.length ? array : reverseArr(array.slice(1)).concat(array[0]);
 };
+
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
