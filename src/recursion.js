@@ -297,6 +297,7 @@ var compareStr = function(str1, str2) {
 var createArray = function(str) {
   // base case: resolve to array containing first character of string
  // recursive case: concatenate results of calling createArray on substrings
+ // using ternary operators to recurse the fucntion and creating the substrings
  return str.length === 1 ? [str.charAt(0)] : [str.charAt(0)].concat(createArray(str.substr(1)));
 };
 
@@ -304,6 +305,7 @@ var createArray = function(str) {
   var reverseArr = function(array) {
   // base case: resolve to (original) empty array
   // recursive case: call reverseArray on sliced array and concatenate with first element
+  // using ternary operators to return the recurse the function
   return !array.length ? array : reverseArr(array.slice(1)).concat(array[0]);
 };
 
@@ -312,6 +314,9 @@ var createArray = function(str) {
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+  // base case: resolve to empty array
+  // recursive case: concatenate results of calling buildList on value and decremented length
+  return length === 0 ? [] : [value].concat(buildList(value,length - 1));
 };
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
@@ -320,6 +325,7 @@ var buildList = function(value, length) {
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
+  
 };
 
 // 20. Count the occurence of a value in a list.
