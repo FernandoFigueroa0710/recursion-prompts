@@ -325,7 +325,26 @@ var buildList = function(value, length) {
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
-  
+  //create a planceholder as an empty array and declare the paramater n under a variable
+  var val = n
+  var array = [];
+  // base case to stop the recursion
+  if ( n === 0){
+    return array;
+  }
+  // conditionals to meet recursive cases
+  if (n % 3 === 0 && n % 5 !== 0){
+    val = 'Fizz';
+  }
+  if(n % 3 !== 0 && n % 5 === 0){
+    val = 'Buzz';
+  }
+  if(n % 3 === 0 && n % 5 === 0){
+    val = 'FizzBuzz';
+  }
+  //recursive cases
+  array.push(val.toString());
+  return fizzBuzz(n -1).concat(array);
 };
 
 // 20. Count the occurence of a value in a list.
