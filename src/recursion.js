@@ -360,7 +360,7 @@ var countOccurrence = function(array, value) {
   // indicate the index position; if the starting position is equal to the values
   // then assign the count value to 1 or cero if there's none (ternary operators)
   var count = array[0] === value ? 1 : 0;
-  // return the placeholder plus the function minus one 
+  // return the placeholder plus the function minus one
   return count + countOccurrence(array.slice(1), value);
 };
 
@@ -435,6 +435,19 @@ var flatten = function(array) {
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
 var letterTally = function(str, obj) {
+  //base case, if the string is not defined; then return an empty object;
+  if(str === '') {
+    return obj;
+    //if the string inside the object is ALSO undefined
+  }else if(obj[str[0]] === undefined){
+    //assing the value of 1 the fisrt charcter in the object's string
+    obj[str[0]] = 1;
+    //add the value of 1 and assing it; to the object.
+  }else{
+    obj[str[0]] += 1;
+  }
+  //recurse case, return the value of the string slicing 1 element
+  return letterTally(str.slice(1), obj);
 };
 
 // 32. Eliminate consecutive duplicates in a list. If the list contains repeated
@@ -449,6 +462,13 @@ var compress = function(list) {
 // itself.
 // augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
+  //base case; if the array is 0, return empty
+  if(array.length === 0){
+    return [];
+  }
+  //return the the value in the array pairing with with the element outside of the array
+  //recurse the elements in the array
+  return [array[0].concat(aug)].concat(augmentElements(array.slice(1), aug));
 };
 
 // 34. Reduce a series of zeroes to a single 0.
